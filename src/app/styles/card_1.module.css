@@ -1,0 +1,53 @@
+.outer{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    background-color: black;
+    border-radius: 1em;
+    box-shadow: 3px 4px 4px white;
+}
+.profile{
+    border-radius: 50%;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+.like button{
+    background-color: black;
+    color: white;
+    border: 0px;
+}
+.like button:hover{
+    cursor:pointer;
+}
+.like button:active{
+    color: red;
+    transition-duration: infinite;
+}
+.top{
+    display: flex;
+    gap: 10px;
+}
+.post{
+    padding: 8px;
+    border-radius: 2em;
+}
+
+.pr_o{
+    text-decoration: none;
+    color: white;
+}
+@media only screen and (min-width:768px){
+    .outer{
+        width: 65vw;
+        margin: 15px;
+    }
+    .post{
+        width: 600px;
+        height: 600px;
+    }
+}
