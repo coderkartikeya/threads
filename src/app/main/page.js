@@ -3,7 +3,7 @@ import main from '../styles/main.module.css'
 import ThreadsAPI from 'threads-api';
 import { faker } from '@faker-js/faker';
 import Image from "next/image";
-import Card_1 from '../components/card_1'
+import Card_1 from '../components/card_1';
 
 const page = () => {
   const data=()=>{
@@ -39,7 +39,7 @@ const page = () => {
     }
   }
   const users=[];
-  for (let i=0;i<1000;i++){
+  for (let i=0;i<500;i++){
     if(i%6===0){
       users.push(data_2());
 

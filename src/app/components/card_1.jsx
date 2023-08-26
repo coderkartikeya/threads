@@ -2,12 +2,15 @@ import main from '../styles/card_1.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useRouter } from "next/navigation";
 
 
 const Card_1 = (props) => {
-    const red=()=>{
-
-    }
+  const id={
+    username:props.name,
+    pic:props.img,
+  }
+    
   return (
     <div className={main.outer}>
     <Link href={'/about'} className={main.link}>
@@ -17,8 +20,8 @@ const Card_1 = (props) => {
         <Link href={{
           pathname:'/profile_1',
           query:{
-            name:props.name,
-            profile:props.img,
+            username:props.name,
+            pic:props.img
           }
         }} className={main.pr_o}>
             <strong>{props.name}</strong></Link>
