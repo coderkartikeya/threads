@@ -5,7 +5,10 @@ import { faker } from '@faker-js/faker';
 import Image from "next/image";
 import Card_1 from '../components/card_1';
 
+
 const page = () => {
+  // const [domLoaded, setDomLoaded] = useState(false);
+
   const data=()=>{
     return {
       text:faker.lorem.paragraph(3),
@@ -67,7 +70,7 @@ const page = () => {
     <div>
     {users.map((events)=>{
       return(
-        <Card_1 img={events.av} tweet={events.text} name={events.username} dte={events.date} pic={events.ima_ge} />
+        <Card_1 img={events.av} tweet={events.text} name={events.username} dte={events.date} pic={events.ima_ge} key={faker.number.int()}/>
 
       )
 

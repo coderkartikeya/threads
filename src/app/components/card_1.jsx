@@ -13,19 +13,19 @@ const Card_1 = (props) => {
     
   return (
     <div className={main.outer}>
-    <Link href={'/about'} className={main.link}>
+    
     <div className={main.top}>
         <Image src={props.img} alt='user' width={30} height={30} className={main.profile}/>
         <div>
-        <Link href={{
+        <a href={{
           pathname:'/profile_1',
           query:{
             username:props.name,
             pic:props.img
           }
         }} className={main.pr_o}>
-            <strong>{props.name}</strong></Link>
-            <p>{props.tweet}</p>
+            <strong>{props.name}</strong></a>
+            <Link href={'/about'} className={main.link}><p>{props.tweet}</p></Link>
             <div className={props.img_1}>
             {props.pic?(<Image src={props.pic} alt='image' width={300} height={300} className={main.post} />):(<></>)}
             
@@ -33,7 +33,7 @@ const Card_1 = (props) => {
             </div>
             
         </div>
-    </div></Link>
+    </div>
     <div className={main.like}>
                 <button><FavoriteIcon /></button>
                 
