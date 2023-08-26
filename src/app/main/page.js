@@ -70,7 +70,7 @@ const page = () => {
     <div>
     {users.map((events)=>{
       return(
-        <Card_1 img={events.av} tweet={events.text} name={events.username} dte={events.date} pic={events.ima_ge} key={faker.number.int()}/>
+        <Card_1 img={events.av} tweet={events.text} name={events.username} dte={events.date} pic={events.ima_ge} key={faker.string.uuid()}/>
 
       )
 
