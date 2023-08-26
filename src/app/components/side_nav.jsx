@@ -21,10 +21,12 @@ const Side_nav = () => {
         position: 'fixed',
         margin:{
             xs:'0px',
+            sm:'0px',
             lg:'10px'
         },
         marginTop:{
-            xs:'93vh'
+            xs:'93vh',
+            sm:'93vh',
         },
         
 
