@@ -25,7 +25,7 @@ const Side_nav = () => {
             lg:'10px'
         },
         marginTop:{
-            xs:'79vh',
+            xs:'87vh',
             sm:'93vh',
         },
         
