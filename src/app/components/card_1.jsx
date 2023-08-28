@@ -2,6 +2,7 @@ import main from '../styles/card_1.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { faker } from '@faker-js/faker';
 import { useRouter } from "next/navigation";
 
 
@@ -9,6 +10,7 @@ const Card_1 = (props) => {
   const id={
     username:props.name,
     pic:props.img,
+    job_:props.job
   }
     
   return (
@@ -21,7 +23,10 @@ const Card_1 = (props) => {
           pathname:'/profile_1',
           query:{
             username:props.name,
-            pic:props.img
+            pic:props.img,
+            job_:faker.person.jobTitle(),
+            follower:faker.number.int(1000),
+            following:faker.number.int(1000),
           }
         }} className={main.pr_o}>
             <strong>{props.name}</strong></Link>

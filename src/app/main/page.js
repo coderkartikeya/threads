@@ -37,7 +37,8 @@ const page = () => {
       av:faker.image.avatar(),
       username:faker.person.fullName(),
       date:faker.date.anytime(),
-      ima_ge:faker.image.urlLoremFlickr({category:'city'})
+      ima_ge:faker.image.urlLoremFlickr({category:'city'}),
+      
 
     }
   }

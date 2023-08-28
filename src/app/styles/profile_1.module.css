@@ -9,6 +9,7 @@
 
 .midd{
     margin-left: 14vw;
+    background-color: black;
     
 }
 .upper_img{
@@ -35,7 +36,44 @@
     
     border-radius: 50%;
 }
+.info{
+    padding-top: 40px;
+    color: white;
 
+}
+.info_in{
+    display: flex;
+}
+.info h1{
+    padding: 10px;
+}
+.info p{
+    padding: 10px;
+    color: gray;
+}
+.buttons{
+    margin-left: 14vw;
+    display: flex;
+    gap:2px;    
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+.button_link{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    background-color: #3e3f41;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+
+
+
+}
 @media only screen and (max-width:768px){
     .midd{
         margin-left: 0px;
@@ -53,5 +91,15 @@
     .pro_in{
         width: 70px;
         height: 70px;
+    }
+    .info{
+        padding-top: 20px;
+    }
+    .buttons{
+        margin-left: 0px;
+        
+    }
+    .button_link{
+        font-size: 20px;
     }
 }

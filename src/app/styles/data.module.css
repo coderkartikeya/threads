@@ -1,0 +1,22 @@
+.main{
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    background: #304352;  
+    background: -webkit-linear-gradient(to left, #304352, #d7d2cc); 
+    background: linear-gradient(to left, #304352, #d7d2cc);
+}
+
+.threads{
+    margin-left: 14vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width:768px){
+    .threads{
+        margin-left: 5px;
+    }
+}
