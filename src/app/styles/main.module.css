@@ -1,0 +1,45 @@
+.bg{
+    width: 100vw;
+    height: 100vh;
+    background: #304352;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #304352, #d7d2cc);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #304352, #d7d2cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: scroll;
+    
+
+    
+
+    
+}
+
+.yellow{
+    background: #292929;
+}
+
+
+.side_bar{
+    margin-bottom: 0px;
+}
+.middle{
+    margin-left: 14vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width:768px){
+    .side_bar{
+        /* z-index: 1; */
+        margin-bottom: 0px;
+
+    }
+    .middle{
+        margin-left: 5px;
+    }
+
+    
+
+    
+}
+

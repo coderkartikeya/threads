@@ -1,0 +1,30 @@
+.middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.middle h1{
+    font-size: 7vw;
+}
+
+
+.google button{
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 1em;
+    background-color: rgb(14, 92, 209);
+    color: white;
+    box-shadow: 3px 4px 3px gray;
+}
+
+@media only screen and (max-width:768px){
+    .middle h1{
+        font-size:15vw;
+    }
+    .google button{
+        font-size: 20px;
+
+    }
+}

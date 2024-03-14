@@ -1,0 +1,81 @@
+// import { NextResponse } from "next/server";
+import mongoose from 'mongoose'
+import { connectd } from "@/app/lib/db";
+import { User } from "@/app/lib/model/user";
+import { NextRequest, NextResponse } from "next/server";
+import bcrypt from 'bcrypt';
+import { hashPassword } from 'node-password-util';
+
+async function comparePasswords(plainPassword, hashedPassword) {
+    try {
+        return await bcrypt.compare(plainPassword, hashedPassword);
+    } catch (error) {
+        console.error("Error comparing passwords:", error);
+        return false;
+    }
+}
+
+export async function GET(){
+    try{
+        
+    await mongoose.connect(connectd);
+    // const {username,password}=await pos.json();
+    // const user=await User.findOne({username:username});
+    // if (!user ) {
+    //     // If user does not exist, return an appropriate response
+    //    return NextResponse.json({status:404,result:"user not found"});
+    // }
+    
+
+    return NextResponse.json( {
+        status: 200,
+        body: "success"
+    });
+}catch(error){
+    console.error("Error in GET request:", error);
+        return {
+            status: 500,
+            body: { message: "Internal Server Error" }
+        };
+
+}
+   
+}
+export async function POST(req){
+    try{
+    await mongoose.connect(connectd);
+
+    const { username, password } = await req.json();
+
+    
+
+    const user=await User.findOne({username:username});
+
+    
+
+    if (!user || !(await password===user.password)) {
+        return {
+            status: 401, // Unauthorized
+            body: { message: "Invalid username or password" }
+        };
+    }
+
+    if(!username || !password){
+        return NextResponse.json({
+            status:409,
+            result:"invalid input"
+        })
+    }
+
+    return NextResponse.json({status:200,r:username});
+}catch(error){
+    console.error("Error in POST request:", error);
+        return {
+            status: 500,
+            body: { message: "Internal Server Error" }
+        };
+
+
+}
+}
+export const dynamic = "force-static";

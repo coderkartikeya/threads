@@ -1,0 +1,38 @@
+.side_icon{
+    display: flex;
+    /* background-color: gray; */
+    margin: 20px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 1em;
+    align-items: center;
+    
+    
+}
+
+.side_icon:hover{
+    border: 2px solid white;
+}
+
+.h1_side{
+    text-decoration: inherit;
+    font-size: 27px;
+    color: white;
+    
+}
+
+
+
+@media only screen and (max-width:768px){
+    .side_icon{
+        align-items: center;
+        padding: 5px;
+        border-radius: 50%;
+        margin: 9px;
+    }
+
+    .h1_side{
+        width: 0px;
+        visibility: hidden;
+    }
+}
