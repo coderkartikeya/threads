@@ -18,6 +18,24 @@
     color: white;
     box-shadow: 3px 4px 3px gray;
 }
+.button{
+    padding: 15px;
+    margin: 10px;
+    color: white;
+    background-color: black;
+    font-size: 25px;
+    border: 0px solid  #f6d8c3;
+    border-radius: 1.3em;
+
+}
+.button:hover{
+    background-color: rgb(33, 183, 213);
+    
+}
+.button:active{
+    background-color: rgb(33, 183, 213);
+    
+}
 
 @media only screen and (max-width:768px){
     .middle h1{

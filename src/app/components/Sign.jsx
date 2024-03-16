@@ -7,14 +7,53 @@ import GoogleIcon from '@mui/icons-material/Google';
 import Image from "next/image";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
-const Sign = () => {
-    const [s,getsign]=useState({});
 
-    const sign_get=(e)=>{
-    getsign({
-      ...s,[e.target.name]:e.target.value
-    })
-  }
+const Sign = () => {
+    const [prevState,getsign]=useState({});
+
+    const sign_get = (e) => {
+        
+        getsign(prevState => ({
+          ...prevState,
+          [e.target.name]: e.target.value
+        }));
+      };
+  
+  const sign_in = async (e) => {
+    e.preventDefault();
+    
+    try {
+        
+        const requestBody = JSON.stringify({
+            username: prevState.username,
+            password: prevState.password
+        });
+        // console.log(requestBody);
+        const req = await fetch('/api/sign', {
+            method: 'POST',
+            body: requestBody,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }); 
+        
+
+        
+
+        if (req.status==200) {            
+            alert("user successfully created");
+        }else if(req.status==409){
+          alert("user already exist");   
+        }
+        else{
+            alert("fill all the fields");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+    
+    
+}
   return (
     <>
     <Container sx={{
@@ -45,7 +84,7 @@ const Sign = () => {
         <button>Login with Google</button>
     </div>
     <div className={sign.form}>
-    <TextField id="standard-basic" label="Name" variant="outlined" sx={{
+    <TextField id="standard-basic" label="Name" name="username" variant="outlined" sx={{
         width:{
             xs:'70vw',
             lg:'40vw'
@@ -56,7 +95,7 @@ const Sign = () => {
     }} required onChange={sign_get}/>
     
     
-    <TextField id="standard-basic" label="Password" variant="filled" sx={{
+    <TextField id="standard-basic" label="Password" name="password" variant="filled" sx={{
         width:{
             xs:'70vw',
             lg:'40vw'
@@ -67,6 +106,7 @@ const Sign = () => {
     }} type="password" required onChange={sign_get} /></div>
 
     </div>
+    <button className={sign.button} onClick={sign_in}>Submit</button>
 
 
     </Container>

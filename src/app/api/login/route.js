@@ -4,7 +4,8 @@ import { connectd } from "@/app/lib/db";
 import { User } from "@/app/lib/model/user";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from 'bcrypt';
-import { hashPassword } from 'node-password-util';
+
+
 
 async function comparePasswords(plainPassword, hashedPassword) {
     try {
@@ -51,9 +52,16 @@ export async function POST(req){
 
     const user=await User.findOne({username:username});
 
+    const hashedPassword = user.password;
+
+        // Compare the entered password with the hashed password
+        const passwordMatch = await bcrypt.compare(password, hashedPassword);
+
     
 
-    if (!user || !(await password===user.password)) {
+    
+
+    if (!user || !(passwordMatch)) {
         return {
             status: 401, // Unauthorized
             body: { message: "Invalid username or password" }
