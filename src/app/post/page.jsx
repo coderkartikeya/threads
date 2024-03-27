@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import Card_1 from '../components/Card_1'
 import { useState } from 'react';
 
-const page = () => {
+const Page = () => {
     const searchParams= useSearchParams();
     // const[data ,setData]=useState();
     const q={
@@ -28,4 +28,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
