@@ -11,41 +11,41 @@ import { useRouter } from "next/navigation";
 
 
 const Card_1 = (props) => {
-  const { name, img, job } = props;
+  const { name, img,job} = props;
+  
   
   const id={
     username:props.name,
     pic:props.img,
     job_:props.job
   }
-  const query = {
-    username: name,
-    pic: img,
-    job_: job,
+  const q = {
+    username: id.username,
+    pic: id.pic,
+    job_: id.job_,
     follower: faker.number.int(1000),
     following: faker.number.int(1000)
   };
- 
+  
+  
     
   return (
     <div className={main.outer}>
+    
     
     <div className={main.top}>
         <Image src={props.img} alt='user' width={30} height={30} className={main.profile}/>
         <div>
         <Link href={{
           pathname:`/profile_1`,
-          query:{
-            username:id.username
-          }
-        }} className={main.pr_o}>
+          query:q
+        }}  className={main.pr_o}>
           
             <strong>{name}</strong></Link>
-            <Link href={'/about'} className={main.link}><p>{props.tweet}</p></Link>
-            <div className={props.img_1}>
+            <p>{props.tweet}</p>
+            <div>
             {props.pic?(<Image src={props.pic} alt='image' width={300} height={300} className={main.post} />):(<></>)}
             
-
             </div>
             
         </div>
@@ -59,7 +59,7 @@ const Card_1 = (props) => {
    
     
     
-    
+      
     </div>
   )
 }

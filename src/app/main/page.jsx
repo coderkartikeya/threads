@@ -7,6 +7,7 @@ import { faker } from '@faker-js/faker';
 import Image from "next/image";
 import Card_1 from '../components/Card_1';
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 
 const Page = () => {
@@ -75,6 +76,8 @@ const Page = () => {
   
 
   
+
+  
   return (
     <div className={main.bg}>
     <div className={main.side_bar}>
@@ -85,9 +88,21 @@ const Page = () => {
     <div className={main.middle}>
     <div>
     {data.map((events)=>{
+      const q={
+        pf:events.profile,
+        twt:events.text,
+        nm:events.username,
+            
+        pic:events.image,
+        key:faker.string.uuid()
+      }
       return(
+        <Link href={{
+          pathname:'/post',
+          query:q
+        }} style={{textDecoration:"none"}} key={faker.string.uuid()} >
         <Card_1 img={events.profile} tweet={events.text} name={events.username} dte={events.date} pic={events.image} key={faker.string.uuid()}/>
-
+        </Link>
       )
 
     })}

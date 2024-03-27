@@ -10,27 +10,37 @@ import { useRouter } from 'next/navigation'
 // import { useParams } from 'next/navigation';
 import Profile_1 from '../components/Profile_1';
 import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 
 
 
 
-const Page = () => {
+export default function Page() {
   // const qul=useRouter();
   // const data=qul.query;
-  const [searchParams, setSearchParams] = useSearchParams();
-  const router = useRouter();
-  const {username,pic,job_,follower,following} = searchParams;
+  const searchParams=useSearchParams();
+  // const router = useRouter();
+  
+  // console.log(searchParams)
+
+  // searchParams={
+  //   username:searchParams?.get("username"),
+  //   pic:searchParams.pic
+
+  // }
+
   
   
   const id={
-    username:username,
-    pic:pic,
-    job_:job_,
-    follower:follower,
-    following:following
+    username:searchParams.get('username'),
+    pic:searchParams.get('pic'),
+    job_:searchParams.get('job_'),
+    follower:searchParams.get('follower'),
+    following:searchParams.get('following')
 
   }
+  
   // const getValues=()=>{
   //   id.username=searchParams.get('username'),
   //   id.pic=searchParams.get('pic'),
@@ -39,12 +49,12 @@ const Page = () => {
   //   id.following=searchParams.get('following')
   // }
   // getValues();
-  const id_string='data:'+id;
+  
 
   // const searchParams=useSearchParams();
   // console.log(searchParams);
+  // console.log(searchParams.get("pic"))
   
-  console.log(searchParams);
   
   
   
@@ -55,7 +65,7 @@ const Page = () => {
   return (<>
     <div className={pf.main}>
     <Side_nav/>
-    <Profile_1 na_={username} pi_c={pic} jo_b={job_} follow={follower} follo_in={following}/>
+    <Profile_1 na_={id.username} pi_c={id.pic} jo_b={id.job_} follow={id.follower} follo_in={id.following}/>
     <div className={pf.buttons}>
     <Link href={{
       pathname:'/data',
@@ -79,4 +89,4 @@ const Page = () => {
   )
 }
 
-export default Page
+// export default Page
