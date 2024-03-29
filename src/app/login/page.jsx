@@ -6,16 +6,18 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import KeyIcon from '@mui/icons-material/Key';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
-
+import { useGlobalContext } from "../context/user";
 
 const Page = () => {
   const [info,getInfo]=useState({});
   const router=useRouter();
+  const { userId, setUserId, data, setData } = useGlobalContext();
 
+  
   
 
   const log_get=(e)=>{
@@ -28,6 +30,7 @@ const Page = () => {
   
   const log_in = async (e) => {
     e.preventDefault();
+
     
     try {
         if(info.username==="" || info.password===""){
@@ -46,6 +49,9 @@ const Page = () => {
         });
 
         if (req.status==200) {
+            setUserId(info.username);
+            
+
             router.push('/main');
         } else if(req.status==500){
           alert("user not found");   

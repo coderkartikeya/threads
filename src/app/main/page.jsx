@@ -8,9 +8,13 @@ import Image from "next/image";
 import Card_1 from '../components/Card_1';
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useGlobalContext } from "../context/user";
 
 
 const Page = () => {
+
+  const{userId}=useGlobalContext();
+  console.log(userId);
   
 
   // const data = () => {
@@ -65,6 +69,7 @@ const Page = () => {
         const newData = await res.json();
         // console.log(newData); // Log the fetched data
         setData(newData.result);
+        
       } catch (error) {
         console.error(error);
       }
@@ -88,21 +93,11 @@ const Page = () => {
     <div className={main.middle}>
     <div>
     {data.map((events)=>{
-      const q={
-        pf:events.profile,
-        twt:events.text,
-        nm:events.username,
-            
-        pic:events.image,
-        key:faker.string.uuid()
-      }
+      
       return(
-        <Link href={{
-          pathname:'/post',
-          query:q
-        }} style={{textDecoration:"none"}} key={faker.string.uuid()} >
-        <Card_1 img={events.profile} tweet={events.text} name={events.username} dte={events.date} pic={events.image} key={faker.string.uuid()}/>
-        </Link>
+        
+        <Card_1 img={events.profile} tweet={events.text} name={events.username} dte={events.date} pic={events.image} key={events._id}/>
+        
       )
 
     })}

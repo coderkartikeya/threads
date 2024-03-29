@@ -26,6 +26,14 @@ const Card_1 = (props) => {
     follower: faker.number.int(1000),
     following: faker.number.int(1000)
   };
+  const q1={
+    pf:props.img,
+    twt:props.tweet,
+    nm:props.name,
+        
+    pic:props.pic,
+    key:props.key
+  }
   
   
     
@@ -42,11 +50,16 @@ const Card_1 = (props) => {
         }}  className={main.pr_o}>
           
             <strong>{name}</strong></Link>
+            <Link href={{
+              pathname:`/post`,
+              query:q1
+            }} style={{textDecoration:'none',color:"white"}} >
             <p>{props.tweet}</p>
             <div>
             {props.pic?(<Image src={props.pic} alt='image' width={300} height={300} className={main.post} />):(<></>)}
             
             </div>
+            </Link>
             
         </div>
     </div>

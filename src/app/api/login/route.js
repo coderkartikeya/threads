@@ -4,6 +4,7 @@ import { connectd } from "@/app/lib/db";
 import { User } from "@/app/lib/model/user";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from 'bcrypt';
+import { useGlobalContext } from '@/app/context/user';
 
 
 
@@ -17,6 +18,7 @@ async function comparePasswords(plainPassword, hashedPassword) {
 }
 
 export async function GET(){
+    
     try{
         
     await mongoose.connect(connectd);
@@ -43,6 +45,7 @@ export async function GET(){
    
 }
 export async function POST(req){
+    
     try{
     await mongoose.connect(connectd);
 
@@ -51,6 +54,7 @@ export async function POST(req){
     
 
     const user=await User.findOne({username:username});
+    
 
     const hashedPassword = user.password;
 
@@ -75,7 +79,11 @@ export async function POST(req){
         })
     }
 
-    return NextResponse.json({status:200,r:username});
+    
+
+    
+
+    return NextResponse.json({status:200,r:"done"});
 }catch(error){
     console.error("Error in POST request:", error);
         return {

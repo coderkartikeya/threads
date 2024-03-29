@@ -126,7 +126,7 @@ const Side_nav = () => {
         </div>
     </Link>
 
-    <Link href={'/profile'} >
+    <Link href={'/profile'} style={{textDecoration:"none"}} >
         <div className={main.side_icon}>
         <PersonIcon sx={{
             color:'white',
