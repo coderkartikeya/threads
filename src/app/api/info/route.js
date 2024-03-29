@@ -3,7 +3,6 @@ import { connectd } from "@/app/lib/db";
 import { User } from "@/app/lib/model/user";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from 'bcrypt';
-import { useGlobalContext } from '@/app/context/user';
 
 export async function  GET(){
     try{
