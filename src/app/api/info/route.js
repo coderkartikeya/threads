@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import { connectd } from "@/app/lib/db";
-import { User } from "@/app/lib/model/user";
+import { connectd } from '../../lib/db';
+import { User } from "../../lib/model/user";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from 'bcrypt';
 
