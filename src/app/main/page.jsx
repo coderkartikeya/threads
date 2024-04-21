@@ -125,7 +125,7 @@ const Page = () => {
       
       return(
         
-        <Card_1 img={events.profile} tweet={events.text} name={events.username} dte={events.date} pic={events.image} k={events.unique}/>
+        <Card_1 img={events.profile} tweet={events.text} name={events.username} dte={events.date} pic={events.image} k={events.unique} key={events.unique}/>
         
       )
 

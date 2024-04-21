@@ -38,7 +38,7 @@ const Card_1 = (props) => {
   
     
   return (
-    <div className={main.outer}>
+    <div className={main.outer} >
     
     
     <div className={main.top}>
