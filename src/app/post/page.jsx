@@ -10,6 +10,18 @@ import Com_ment from '../components/Com_ment';
 const Page = () => {
   const u = useGlobalContext();
   const searchParams = useSearchParams();
+  function generateKey() {
+    // Generate a random string of characters
+    const randomString = Math.random().toString(36).substring(2, 10);
+    
+    // Get the current timestamp
+    const timestamp = Date.now().toString(36);
+  
+    // Concatenate the random string and timestamp to create a unique key
+    const key = randomString + timestamp;
+  
+    return key;
+  }
   const q = {
     pf: searchParams.get('pf'),
     twt: searchParams.get('twt'),
@@ -74,6 +86,7 @@ const Page = () => {
         username: data.user,
         text: data.text,
         key: q.key,
+        unique:generateKey()
       });
       const req = await fetch('/api/comment', {
         method: 'PUT',
@@ -99,8 +112,8 @@ const Page = () => {
 
       <div className={pd.commentsContainer}>
         <div className={pd.comments}>
-          {comment.map((e) => (
-            <Com_ment text={e.text} account={e.username}/>
+          {comment.map((e,index) => (
+            <Com_ment key={index} text={e.text} account={e.username}/>
           ))}
         </div>
       </div>

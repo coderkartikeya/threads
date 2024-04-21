@@ -48,12 +48,14 @@ export async function PUT(res){
     try{
 
         const result =await res.json();
-        console.log(result);
+        // console.log(result);
+        console.log(result.unique)
         mongoose.connect(connectd);
         let post =new Comment({
             username:result.username,
             text:result.text,
-            key:result.key
+            key:result.key,
+            unique:result.unique
         })
         const rs=await post.save();
 
