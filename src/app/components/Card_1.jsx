@@ -32,9 +32,9 @@ const Card_1 = (props) => {
     nm:props.name,
         
     pic:props.pic,
-    key:props.key
+    key:props.k
   }
-  
+  // console.log(q1);
   
     
   return (

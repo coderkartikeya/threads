@@ -5,7 +5,9 @@ const post=new mongoose.Schema({
     username: String,
     image:String,
     date:String,
-    profile:String  
+    profile:String,
+    unique:String,
+    
 
 })
 

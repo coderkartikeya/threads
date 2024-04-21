@@ -14,7 +14,21 @@ import { useGlobalContext } from "../context/user";
 const Page = () => {
 
   const{userId}=useGlobalContext();
-  console.log(userId);
+  function generateKey() {
+    // Generate a random string of characters
+    const randomString = Math.random().toString(36).substring(2, 10);
+    
+    // Get the current timestamp
+    const timestamp = Date.now().toString(36);
+  
+    // Concatenate the random string and timestamp to create a unique key
+    const key = randomString + timestamp;
+  
+    return key;
+  }
+  
+  
+  
   
 
   // const data = () => {
@@ -24,7 +38,11 @@ const Page = () => {
   //     username: faker.person.fullName(),
   //     date: faker.date.anytime(),
   //     ima_ge: '',
-  //   };
+  //     key:generateKey(),
+  //     likes:faker.number.int(1000),
+  //     comments:0
+
+  //   }
   // };
 
   // const data_2 = () => {
@@ -34,6 +52,9 @@ const Page = () => {
   //     username: faker.person.fullName(),
   //     date: faker.date.anytime(),
   //     ima_ge: faker.image.urlLoremFlickr({ category: 'nature' }),
+  //     key:generateKey(),
+  //     likes:faker.number.int(1000),
+  //     comments:0
   //   };
   // };
 
@@ -44,6 +65,9 @@ const Page = () => {
   //     username: faker.person.fullName(),
   //     date: faker.date.anytime(),
   //     ima_ge: faker.image.urlLoremFlickr({ category: 'city' }),
+  //     key:generateKey(),
+  //     likes:faker.number.int(1000),
+  //     comments:0
   //   };
   // };
 
@@ -62,12 +86,17 @@ const Page = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // const requestBody=JSON.stringify({
+        //   data:users
+        // })
+        
+
         const res = await fetch('/api/post');
         if (!res.ok) {
           throw new Error('Failed to fetch data');
         }
         const newData = await res.json();
-        // console.log(newData); // Log the fetched data
+        // console.log(newData.result); // Log the fetched data
         setData(newData.result);
         
       } catch (error) {
@@ -96,7 +125,7 @@ const Page = () => {
       
       return(
         
-        <Card_1 img={events.profile} tweet={events.text} name={events.username} dte={events.date} pic={events.image} key={events._id}/>
+        <Card_1 img={events.profile} tweet={events.text} name={events.username} dte={events.date} pic={events.image} k={events.unique}/>
         
       )
 

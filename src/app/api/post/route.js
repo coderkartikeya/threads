@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import { connectd } from "@/app/lib/db";
-import { Post } from "@/app/lib/model/post"
+import { Post } from "../../lib/model/post";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function  GET(){
@@ -20,19 +20,22 @@ export async function  GET(){
 }
 }
 
-export async function POST(){
+export async function POST(res){
     try{
 
-        // const result = await req.json();
+        const result = await res.json();
         mongoose.connect(connectd);
+        
 
-        // for(let i=0;i<result.length;i++){
+        // for(let i=0;i<result.data.length;i++){
         //     let post=new Post({
-        //         text: result[i].text ,
-        //         username: result[i].username,
-        //         image:result[i].ima_ge,
-        //         date:result[i].data,
-        //         profile:result[i].av
+        //         text: result.data[i].text ,
+        //         username: result.data[i].username,
+        //         image:result.data[i].ima_ge,
+        //         date:result.data[i].data,
+        //         profile:result.data[i].av,
+        //         unique:result.data[i].key,
+                
         //     })
         //     const rs=await post.save();
 
@@ -42,14 +45,18 @@ export async function POST(){
         //     username:"kartikeya",
         //     image:"",
         //     date:"",
-        //     profile:""
+        //     profile:"",
+        //     unique:"",
+        //     like:0,
+        //     comment:0
         // })
         // const rs=await post.save();
-        const res=await Post.find();
+        // const r=await Post.find();
         return NextResponse.json({
             status:200,
-            result:res
+            result:result
         })
+        // return NextResponse.json({status:200,r:res})
 
     }catch(error){
         console.error(error);

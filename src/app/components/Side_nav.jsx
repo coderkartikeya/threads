@@ -90,7 +90,7 @@ const Side_nav = () => {
         </div>
     </Link>
 
-    <Link href={'/add'} >
+    <Link href={'/add'} style={{textDecoration:"none"}} > 
         <div className={main.side_icon}>
         <EditNoteIcon sx={{
             color:'white',

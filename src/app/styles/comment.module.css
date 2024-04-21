@@ -1,0 +1,33 @@
+.box{
+    height: 10vh;
+    margin-bottom: 30px;
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 10px;
+    color: white;
+    margin: 10px;
+    width: 70vw;
+    border-radius: 1.5em;
+
+}
+.title{
+    width: 8vw;
+    background: #4CA1AF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    justify-content: center;
+    color: black;
+    border-radius: 1.4em;
+}
+.text{
+    margin: 10px;
+}
+@media  screen and (max-width:768px) {
+
+    .title{
+        width: 16vw;
+        font-size: 10px;
+    }    
+}
