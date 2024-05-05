@@ -74,6 +74,9 @@
 
 
 }
+.posts{
+    margin-left: 14vw;
+}
 @media only screen and (max-width:768px){
     .midd{
         margin-left: 0px;

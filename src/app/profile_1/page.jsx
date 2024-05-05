@@ -10,7 +10,8 @@ import { useRouter } from 'next/navigation'
 // import { useParams } from 'next/navigation';
 import Profile_1 from '../components/Profile_1';
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useId, useState } from 'react';
+import { useGlobalContext } from '../context/user';
 
 
 
@@ -20,6 +21,7 @@ export default function Page() {
   // const qul=useRouter();
   // const data=qul.query;
   const searchParams=useSearchParams();
+  const { userId } = useGlobalContext();
   // const router = useRouter();
   
   // console.log(searchParams)
@@ -29,6 +31,7 @@ export default function Page() {
   //   pic:searchParams.pic
 
   // }
+  const [post,getPost]=useState({});
 
   
   
@@ -40,21 +43,6 @@ export default function Page() {
     following:searchParams.get('following')
 
   }
-  
-  // const getValues=()=>{
-  //   id.username=searchParams.get('username'),
-  //   id.pic=searchParams.get('pic'),
-  //   id.job_=searchParams.get('job_'),
-  //   id.follower=searchParams.get('follower'),
-  //   id.following=searchParams.get('following')
-  // }
-  // getValues();
-  
-
-  // const searchParams=useSearchParams();
-  // console.log(searchParams);
-  // console.log(searchParams.get("pic"))
-  
   
   
   

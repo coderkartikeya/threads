@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import { connectd } from "@/app/lib/db";
 import { Post } from "../../lib/model/post";
+import { User } from "../../lib/model/user";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function  GET(){
@@ -25,6 +26,14 @@ export async function POST(res){
 
         const result = await res.json();
         mongoose.connect(connectd);
+        const rt=await User.find({username:result.username});
+        let post=new Post({
+            text:result.text,
+            username:result.username,
+            profile:rt.profile,
+            unique:rt.key
+        })
+        const t=await post.save();
         
 
         // for(let i=0;i<result.data.length;i++){
